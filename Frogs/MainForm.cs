@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Frogs
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         char[] symbols = { '*', '*', '*', '-', '#', '#', '#' };
         Button[] buttons = new Button[7];
@@ -18,7 +18,7 @@ namespace Frogs
         int indexOfNextButton;
         char temp;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
