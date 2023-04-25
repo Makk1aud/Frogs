@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Frogs
 {
@@ -39,11 +40,13 @@ namespace Frogs
             buttons[6] = seventh;
         }
 
+        //Check the index for out of bounds
         private bool CheckIndex(int index)
         {
             return index >= 0 && index < symbols.Length;
         }
 
+        //Change the text of the buttons among themselves
         private void ChangeButtonText(Button button)
         {
             temp = Convert.ToChar(button.Text);
@@ -51,20 +54,23 @@ namespace Frogs
             buttons[indexOfNextButton].Text = temp.ToString();
         }
 
+        //Change the symbols of the array among themselves
         private void ChangeSymbolsInArray()
         {
             symbols[indexOfButton] = symbols[indexOfNextButton];
             symbols[indexOfNextButton] = temp;
         }
 
+        //Jump check function
         private void CanJump(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            indexOfButton = Array.IndexOf(buttons, button);
+            indexOfButton = Array.IndexOf(buttons, button); //Index of Button in array
             for(int i = -2; i < 3; i++)
             {
+                //Index of button which maybe will change
                 indexOfNextButton = indexOfButton+ i;
-                if (CheckIndex(indexOfNextButton) && symbols[indexOfNextButton] == '-') 
+                if (CheckIndex(indexOfNextButton) && symbols[indexOfNextButton] == '-') //Check of empty postion
                 {
                     ChangeButtonText(button);                  
                     ChangeSymbolsInArray();
