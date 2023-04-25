@@ -44,6 +44,19 @@ namespace Frogs
             return index >= 0 && index < symbols.Length;
         }
 
+        private void ChangeButtonText(Button button)
+        {
+            temp = Convert.ToChar(button.Text);
+            button.Text = buttons[indexOfNextButton].Text;
+            buttons[indexOfNextButton].Text = temp.ToString();
+        }
+
+        private void ChangeSymbolsInArray()
+        {
+            symbols[indexOfButton] = symbols[indexOfNextButton];
+            symbols[indexOfNextButton] = temp;
+        }
+
         private void CanJump(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -53,12 +66,8 @@ namespace Frogs
                 indexOfNextButton = indexOfButton+ i;
                 if (CheckIndex(indexOfNextButton) && symbols[indexOfNextButton] == '-') 
                 {
-                    temp = Convert.ToChar(button.Text);
-                    button.Text = buttons[indexOfNextButton].Text;
-                    buttons[indexOfNextButton].Text = temp.ToString();
-
-                    symbols[indexOfButton] = symbols[indexOfNextButton];
-                    symbols[indexOfNextButton] = temp;
+                    ChangeButtonText(button);                  
+                    ChangeSymbolsInArray();
                 }
             }
         }
