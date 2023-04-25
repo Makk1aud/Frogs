@@ -39,6 +39,11 @@ namespace Frogs
             buttons[6] = seventh;
         }
 
+        private bool CheckIndex(int index)
+        {
+            return index >= 0 && index < symbols.Length;
+        }
+
         private void CanJump(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -46,7 +51,7 @@ namespace Frogs
             for(int i = -2; i < 3; i++)
             {
                 indexOfNextButton = indexOfButton+ i;
-                if (indexOfButton + i >= 0 && indexOfNextButton < symbols.Length && symbols[indexOfNextButton] == '-') 
+                if (CheckIndex(indexOfNextButton) && symbols[indexOfNextButton] == '-') 
                 {
                     temp = Convert.ToChar(button.Text);
                     button.Text = buttons[indexOfNextButton].Text;
