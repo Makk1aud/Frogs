@@ -13,7 +13,7 @@ namespace Frogs
     public partial class Form1 : Form
     {
         char[] symbols = { '*', '*', '*', '-', '#', '#', '#' };
-        Button[] buttons = new Button[6];
+        Button[] buttons = new Button[7];
         int indexOfButton;
         char temp;
 
@@ -44,7 +44,7 @@ namespace Frogs
             indexOfButton = Array.IndexOf(buttons, button);
             for(int i = -2; i < 3; i++)
             {
-                if (symbols[indexOfButton + i] == '-' && indexOfButton + i > 0 && indexOfButton+ i < symbols.Length) 
+                if (indexOfButton + i > 0 && indexOfButton + i < symbols.Length && symbols[indexOfButton + i] == '-') 
                 {
                     temp = Convert.ToChar(button.Text);
                     button.Text = buttons[indexOfButton+i].Text;

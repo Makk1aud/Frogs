@@ -46,6 +46,7 @@
             this.first.TabIndex = 0;
             this.first.Text = "*";
             this.first.UseVisualStyleBackColor = true;
+            this.first.Click += new System.EventHandler(this.CanJump);
             // 
             // second
             // 
@@ -56,6 +57,7 @@
             this.second.TabIndex = 0;
             this.second.Text = "*";
             this.second.UseVisualStyleBackColor = true;
+            this.second.Click += new System.EventHandler(this.CanJump);
             // 
             // third
             // 
@@ -66,6 +68,7 @@
             this.third.TabIndex = 0;
             this.third.Text = "*";
             this.third.UseVisualStyleBackColor = true;
+            this.third.Click += new System.EventHandler(this.CanJump);
             // 
             // fourth
             // 
@@ -76,6 +79,7 @@
             this.fourth.TabIndex = 0;
             this.fourth.Text = "-";
             this.fourth.UseVisualStyleBackColor = true;
+            this.fourth.Click += new System.EventHandler(this.CanJump);
             // 
             // sixth
             // 
@@ -86,6 +90,7 @@
             this.sixth.TabIndex = 0;
             this.sixth.Text = "#";
             this.sixth.UseVisualStyleBackColor = true;
+            this.sixth.Click += new System.EventHandler(this.CanJump);
             // 
             // fifth
             // 
@@ -96,6 +101,7 @@
             this.fifth.TabIndex = 0;
             this.fifth.Text = "#";
             this.fifth.UseVisualStyleBackColor = true;
+            this.fifth.Click += new System.EventHandler(this.CanJump);
             // 
             // seventh
             // 
@@ -106,6 +112,7 @@
             this.seventh.TabIndex = 0;
             this.seventh.Text = "#";
             this.seventh.UseVisualStyleBackColor = true;
+            this.seventh.Click += new System.EventHandler(this.CanJump);
             // 
             // Form1
             // 
