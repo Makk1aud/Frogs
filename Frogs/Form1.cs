@@ -15,8 +15,8 @@ namespace Frogs
         char[] symbols = { '*', '*', '*', '-', '#', '#', '#' };
         Button[] buttons = new Button[7];
         int indexOfButton;
+        int indexOfNextButton;
         char temp;
-        bool jump = true;
 
         public Form1()
         {
@@ -45,15 +45,15 @@ namespace Frogs
             indexOfButton = Array.IndexOf(buttons, button);
             for(int i = -2; i < 3; i++)
             {
-                if (indexOfButton + i >= 0 && indexOfButton + i < symbols.Length && symbols[indexOfButton + i] == '-' && jump) 
+                indexOfNextButton = indexOfButton+ i;
+                if (indexOfButton + i >= 0 && indexOfNextButton < symbols.Length && symbols[indexOfNextButton] == '-') 
                 {
                     temp = Convert.ToChar(button.Text);
-                    button.Text = buttons[indexOfButton+i].Text;
-                    buttons[indexOfButton+i].Text = temp.ToString();
+                    button.Text = buttons[indexOfNextButton].Text;
+                    buttons[indexOfNextButton].Text = temp.ToString();
 
-                    symbols[indexOfButton] = symbols[indexOfButton + i];
-                    symbols[indexOfButton+i] = temp;
-                    //jump= false;
+                    symbols[indexOfButton] = symbols[indexOfNextButton];
+                    symbols[indexOfNextButton] = temp;
                 }
             }
         }
